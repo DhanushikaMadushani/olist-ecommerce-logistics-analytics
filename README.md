@@ -71,25 +71,3 @@ The PostgreSQL pipeline is split into two organized scripts:
    * Overdue delivery severity (average and maximum days delayed).
 
 ---
-  
-## 🛠️ Project Structure
-
-```text
-olist-ecommerce-logistics-analytics/
-│
-├── database/
-│   └── olist_schema.pgerd              # Schema diagram file
-│
-├── images/
-│   ├── commercial_performance.png      # Dashboard Page 1
-│   ├── logistics_operations.png        # Dashboard Page 2
-│   └── database_erd.png                # Database ER diagram
-│
-├── pbix/
-│   └── olist_ecommerce_analytics.pbix  # Power BI report
-│
-├── sql/
-│   ├── 01_schema_setup.sql             # Table creation & keys
-│   └── 02_business_analysis.sql        # 10 business analysis queries
-│
-└── README.md                           # Documentation
