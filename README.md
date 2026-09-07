@@ -1,10 +1,5 @@
 # 📦 Brazilian E-Commerce: Commercial Performance & Logistics Analytics
 
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![DAX](https://img.shields.io/badge/DAX-Data_Analysis_Expressions-0078D4?style=for-the-badge)
-![Data Modeling](https://img.shields.io/badge/Schema-Star_Schema-green?style=for-the-badge)
-
 An end-to-end business intelligence solution analyzing **96,000+ customer orders** from the Brazilian e-commerce platform **Olist**. The project couples an exploratory PostgreSQL relational database backend with an executive-level, two-page Power BI dashboard evaluating commercial sales drivers, fulfillment bottlenecks, and delivery Service Level Agreement (SLA) breach rates.
 
 ---
@@ -19,14 +14,21 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
 
 ---
 
+# 📁 Dataset
+
+* **Source:** [Brazilian E-Commerce Public Dataset by Olist on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+* **Scope:** ~100k orders (2016–2018) covering orders, payments, shipping, customer locations, and reviews.
+
+---
+
 ## 📌 Executive Summary & Key KPIs
 
-* **Realized Gross Merchandise Value (GMV):** **$13.22M** in net revenue locked strictly to completed orders (`order_status = 'delivered'`).
+* **Total Sales(GMV):** **$13.22M** in net revenue locked strictly to completed orders (`order_status = 'delivered'`).
 * **Delivered Orders Volume:** **96K** fulfilled customer orders.
 * **Average Order Value (AOV):** **$137.04**.
 * **Total Freight Costs:** **$2.20M** spent across fulfillment networks.
-* **Average Delivery Lead Time:** **12.50 Days** from purchase to doorstep delivery.
-* **On-Time Delivery Rate:** **91.9%** (representing an overall delivery SLA breach rate of **8.1%** across ~8K delayed shipments).
+* **Average Delivery Lead Time:** **12.5 Days** from purchase to doorstep delivery.
+* **On-Time Delivery Rate:** **91.9%** (with an **8.1%** delay rate across ~8K delayed shipments).
 
 ---
 
@@ -34,7 +36,7 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
 
 1. **Logistics Impact on Customer Satisfaction (Review Scores):**
    * Orders receiving **1-star reviews** suffered an average lead time of **~21 days**.
-   * Orders receiving **5-star reviews** maintained a lead time of **~10 days**, proving transit velocity directly drives customer sentiment.
+   * Orders receiving **5-star reviews** maintained a lead time of **~10 days**
 2. **Payment Dynamics:**
    * **Credit cards** drive **78%** ($12.1M) of total transaction value.
    * **Boleto** represents the second largest payment method at **18%** ($2.8M).
@@ -69,42 +71,25 @@ The PostgreSQL pipeline is split into two organized scripts:
    * Overdue delivery severity (average and maximum days delayed).
 
 ---
+  
+## 🛠️ Project Structure
 
-## ⚙️ Power BI Data Modeling & Key DAX Measures
-
-### Single-Direction Filter Propagation & Virtual Relationships
-To avoid model-wide bidirectional relationship degradation while reporting across review dimensions, `CROSSFILTER` was leveraged directly within DAX calculations:
-
-```dax
--- Realized GMV (Locked to delivered orders)
-Total Revenue = 
-CALCULATE(
-    SUM('order_items'[price]),
-    KEEPFILTERS('orders'[order_status] = "delivered")
-)
-
--- Delivery Lead Time (Days)
-Avg Delivery Days = 
-AVERAGEX(
-    FILTER(
-        'orders',
-        NOT(ISBLANK('orders'[order_delivered_customer_date]))
-            && 'orders'[order_status] = "delivered"
-    ),
-    DATEDIFF(
-        'orders'[order_purchase_timestamp],
-        'orders'[order_delivered_customer_date],
-        DAY
-    )
-)
-
--- Lead Time vs. Review Score Virtual Bridge
-Avg Delivery Days by Review = 
-CALCULATE(
-    [Avg Delivery Days],
-    CROSSFILTER('orders'[order_id], 'order_reviews'[order_id], Both)
-)
-
--- Delivery SLA Breach Rate
-Late Delivery Rate % = 
-DIVIDE([Total Breached Orders], [Delivered Orders], 0)
+```text
+olist-ecommerce-logistics-analytics/
+│
+├── database/
+│   └── olist_schema.pgerd              # Schema diagram file
+│
+├── images/
+│   ├── commercial_performance.png      # Dashboard Page 1
+│   ├── logistics_operations.png        # Dashboard Page 2
+│   └── database_erd.png                # Database ER diagram
+│
+├── pbix/
+│   └── olist_ecommerce_analytics.pbix  # Power BI report
+│
+├── sql/
+│   ├── 01_schema_setup.sql             # Table creation & keys
+│   └── 02_business_analysis.sql        # 10 business analysis queries
+│
+└── README.md                           # Documentation
