@@ -83,5 +83,5 @@ The PostgreSQL pipeline is split into two organized scripts:
 
 ## 👤 Author
 
-* **Dhanushika Madushani**[cite: 1, 3]
-* **LinkedIn:** [linkedin.com/in/dhanushika-m](https://www.linkedin.com/in/dhanushika-m)[cite: 1, 3]
+* **Dhanushika Madushani**
+* **LinkedIn:** [linkedin.com/in/dhanushika-m](https://www.linkedin.com/in/dhanushika-m)
