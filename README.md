@@ -14,7 +14,7 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
 
 ---
 
-# 📁 Dataset
+## 📁 Dataset
 
 * **Source:** [Brazilian E-Commerce Public Dataset by Olist on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 * **Scope:** ~100k orders (2016–2018) covering orders, payments, shipping, customer locations, and reviews.
@@ -23,7 +23,7 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
 
 ## 📌 Executive Summary & Key KPIs
 
-* **Total Sales(GMV):** **$13.22M** in net revenue locked strictly to completed orders (`order_status = 'delivered'`).
+* **Total Sales (GMV):** **$13.22M** in net revenue locked strictly to completed orders (`order_status = 'delivered'`).
 * **Delivered Orders Volume:** **96K** fulfilled customer orders.
 * **Average Order Value (AOV):** **$137.04**.
 * **Total Freight Costs:** **$2.20M** spent across fulfillment networks.
@@ -36,7 +36,7 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
 
 1. **Logistics Impact on Customer Satisfaction (Review Scores):**
    * Orders receiving **1-star reviews** suffered an average lead time of **~21 days**.
-   * Orders receiving **5-star reviews** maintained a lead time of **~10 days**
+   * Orders receiving **5-star reviews** maintained a lead time of **~10 days**.
 2. **Payment Dynamics:**
    * **Credit cards** drive **78%** ($12.1M) of total transaction value.
    * **Boleto** represents the second largest payment method at **18%** ($2.8M).
@@ -71,3 +71,17 @@ The PostgreSQL pipeline is split into two organized scripts:
    * Overdue delivery severity (average and maximum days delayed).
 
 ---
+
+## 🛠️ Tools & Technologies
+
+* **Database & Querying:** PostgreSQL, pgAdmin 4
+* **Business Intelligence & Reporting:** Microsoft Power BI Desktop
+* **Data Transformation:** Power Query
+* **Calculations & Data Modeling:** DAX (Data Analysis Expressions), Star Schema
+
+---
+
+## 👤 Author
+
+* **Dhanushika Madushani**[cite: 1, 3]
+* **LinkedIn:** [linkedin.com/in/dhanushika-m](https://www.linkedin.com/in/dhanushika-m)[cite: 1, 3]
