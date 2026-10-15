@@ -23,7 +23,7 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
 
 ## 📌 Executive Summary & Key KPIs
 
-* **Total Sales (GMV):** **$13.22M** in net revenue locked strictly to completed orders (`order_status = 'delivered'`).
+* **Total Sales (GMV):** **$13.22M** in net revenue locked strictly to completed orders (order_status = 'delivered').
 * **Delivered Orders Volume:** **96K** fulfilled customer orders.
 * **Average Order Value (AOV):** **$137.04**.
 * **Total Freight Costs:** **$2.20M** spent across fulfillment networks.
@@ -53,9 +53,9 @@ The database is built on a Star Schema optimizing analytical performance and pre
 
 ![Database ER Diagram](images/database_erd.png)
 
-* **Fact Tables:** `orders`, `order_items`
-* **Dimension Tables:** `customers`, `order_payments`, `order_reviews`, `products`
-* **Translation Abstraction View:** Built a unified database view (`vw_products`) joining category translation mapping to normalize Portuguese product classifications into English.
+* **Fact Tables:** orders, order_items
+* **Dimension Tables:** customers, order_payments, order_reviews, products
+* **Translation Abstraction View:** Built a unified database view (vw_products) joining category translation mapping to normalize Portuguese product classifications into English.
 
 ---
 
