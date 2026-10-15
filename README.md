@@ -41,7 +41,7 @@ An end-to-end business intelligence solution analyzing **96,000+ customer orders
    * **Credit cards** drive **78%** ($12.1M) of total transaction value.
    * **Boleto** represents the second largest payment method at **18%** ($2.8M).
 3. **Category Concentration:**
-   * Top revenue generators are led by `health_beauty` ($1.23M), `watches_gifts` ($1.17M), and `bed_bath_table` ($1.02M).
+   * Top revenue generators are led by health_beauty ($1.23M), watches_gifts ($1.17M), and bed_bath_table ($1.02M).
 4. **Regional SLA Vulnerability:**
    * Northern and northeastern states face severe fulfillment delays: **Alagoas (AL) leads with a 23.9% breach rate**, followed by **Maranhão (MA) at 19.7%**.
 
@@ -67,7 +67,7 @@ The PostgreSQL pipeline is split into two organized scripts:
 2. **[`sql/02_business_analysis.sql`](sql/02_business_analysis.sql):** Addresses targeted commercial and fulfillment business questions:
    * Fulfillment state distributions and customer counts.
    * Lead time distributions and delivery duration averages.
-   * Shipping cost thresholds (`freight_value > price`).
+   * Shipping cost thresholds (freight_value > price).
    * Overdue delivery severity (average and maximum days delayed).
 
 ---
