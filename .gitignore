@@ -1,10 +1,14 @@
-# Ignore raw data files
+# Ignore raw data files and folders
 dataset/
 *.csv
+*.xlsx
+*.parquet
 
-# Ignore Jupyter / Colab execution checkpoints
-.ipynb_checkpoints/
-
-# Ignore Python cache
+# Ignore Python runtime cache and checkpoints
 __pycache__/
 *.pyc
+.ipynb_checkpoints/
+
+# Ignore local environment or configuration files
+.env
+.DS_Store
