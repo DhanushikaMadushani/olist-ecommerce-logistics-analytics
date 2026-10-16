@@ -1,0 +1,10 @@
+# Ignore raw data files
+dataset/
+*.csv
+
+# Ignore Jupyter / Colab execution checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
